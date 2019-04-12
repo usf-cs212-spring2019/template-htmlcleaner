@@ -40,7 +40,7 @@ public class HtmlCleanerFullTest {
 				"The Elements of Style by William Strunk"
 		));
 
-		test(url, Collections.emptyList(), expected);
+		test(url, HtmlCleanerLinkTest.getGutenURLs(), expected);
 	}
 
 	@Test
