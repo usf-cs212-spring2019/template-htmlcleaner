@@ -1,12 +1,11 @@
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-
-import java.nio.charset.StandardCharsets;
 
 @SuppressWarnings("javadoc")
 public class HtmlCleanerStripTest {
@@ -365,7 +364,7 @@ public class HtmlCleanerStripTest {
 			Assertions.assertTrue(Files.isReadable(textPath));
 
 			String html = Files.readString(htmlPath, StandardCharsets.UTF_8);
-			String expected = Files.readString(textPath StandardCharsets.UTF_8);
+			String expected = Files.readString(textPath, StandardCharsets.UTF_8);
 			String actual = HtmlCleaner.stripHtml(html);
 
 			test(html.toString(), expected, actual);
