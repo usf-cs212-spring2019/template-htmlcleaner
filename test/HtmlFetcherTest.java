@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -153,8 +154,8 @@ public class HtmlFetcherTest {
 				Assertions.assertNotNull(html);
 
 				Path hello = Paths.get("test", "yellowthroat.html");
-				List<String> lines = Files.readAllLines(hello);
-				String expected = String.join(System.lineSeparator(), lines);
+				List<String> lines = Files.readAllLines(hello, StandardCharsets.UTF_8);
+				String expected = String.join("\n", lines);
 				Assertions.assertEquals(expected, html);
 			});
 		}
@@ -180,8 +181,8 @@ public class HtmlFetcherTest {
 				Assertions.assertNotNull(html);
 
 				Path hello = Paths.get("test", "hello.html");
-				List<String> lines = Files.readAllLines(hello);
-				String expected = String.join(System.lineSeparator(), lines);
+				List<String> lines = Files.readAllLines(hello, StandardCharsets.UTF_8);
+				String expected = String.join("\n", lines);
 				Assertions.assertEquals(expected, html);
 			});
 		}
